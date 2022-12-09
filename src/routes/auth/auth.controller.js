@@ -10,8 +10,9 @@ const httpValidUser=async(req,res)=>{
    //  console.log(isUser);
      let result={response:1};
      if(isUser==null) result={response:0,error:"user is not registered"} 
-     if(isUser && isUser.password!=password) result={response:0,error:"wrong password!!"}
-    res.status(200).json({response:1,name:isUser.name});
+     else if(isUser && isUser.password!=password) result={response:0,error:"wrong password!!"}
+     else result={response:1,name:isUser.name};
+    res.status(200).json({result});
 } 
 
 
