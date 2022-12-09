@@ -12,7 +12,7 @@ const httpValidUser=async(req,res)=>{
      if(isUser==null) result={response:0,error:"user is not registered"} 
      else if(isUser && isUser.password!=password) result={response:0,error:"wrong password!!"}
      else result={response:1,name:isUser.name};
-    res.status(200).json({result});
+    res.status(200).json(result);
 } 
 
 
