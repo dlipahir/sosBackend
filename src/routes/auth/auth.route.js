@@ -3,7 +3,7 @@ const {httpValidUser,httpCreateUser,httpResetPassword,httpSendOtp}=require('./au
 const authRouter= Router();
 
 
-authRouter.get('/login',httpValidUser);
+authRouter.post('/login',httpValidUser);
 authRouter.post('/create',httpCreateUser);
 authRouter.post('/reset',httpResetPassword);
 authRouter.post('/otp',httpSendOtp);
