@@ -11,7 +11,7 @@ const httpValidUser=async(req,res)=>{
      let result={response:1};
      if(isUser==null) result={response:0,error:"user is not registered"} 
      if(isUser && isUser.password!=password) result={response:0,error:"wrong password!!"}
-    res.status(200).json(result);
+    res.status(200).json({response:1,name:isUser.name});
 } 
 
 
@@ -35,7 +35,7 @@ const httpSendOtp=async(req,res)=>{
      const otp=generateOTP();
      const storeotp=await StoreOtp(email,otp);
   //   console.log("storeotp",storeotp);
-     if(!storeotp.acknowledged){ res.status(200).json({response:false}); return;}
+     if(!storeotp.acknowledged){ res.status(200).json({response:0,error:"unexpected ocurred"}); return;}
      const sendmail=await SendMail(email,otp);
     // console.log("sendmail",sendmail);
      const response={response:true};
